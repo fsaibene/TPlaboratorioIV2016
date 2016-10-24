@@ -7,6 +7,11 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
+.header-site{
+  background: url(../files/images/buildings/7Ce02n.jpg);
+  background-position: 100% 60%;
+  background-repeat: no-repeat;
+}
 p {
   font-size: 20px;
 }
@@ -69,8 +74,9 @@ hr.star-primary:after {
 }
 header {
   text-align: center;
-  background: #18BC9C;
-  color: white;
+  background: white;
+  color: black;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 header .container {
   padding-top: 100px;
