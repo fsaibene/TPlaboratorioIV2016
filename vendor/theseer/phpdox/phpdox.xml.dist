@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpdox xmlns="http://phpdox.net/config" silent="false">
+
+    <project name="phpDox" source="src" workdir="${basedir}/build/api/xml">
+
+        <collector publiconly="false" backend="parser" />
+
+        <generator output="${basedir}/build/api/docs">
+
+            <enrich base="${basedir}/build/logs">
+                <source type="build" />
+                <source type="git">
+                    <history enabled="true" limit="15" />
+                </source>
+                <source type="checkstyle" />
+                <source type="pmd" />
+                <source type="phploc" />
+            </enrich>
+
+            <build engine="html" enabled="true" output="html">
+                <template dir="${phpDox.home}/templates/html" />
+                <file extension="xhtml" />
+            </build>
+
+            <build engine="xml" enabled="true" output="xml" />
+
+            <build engine="todo" enabled="false" output="todo">
+                <file name="todolist.txt" encoding="utf-8" />
+            </build>
+
+            <build engine="graph" enabled="false" output="graph" />
+
+        </generator>
+    </project>
+
+</phpdox>

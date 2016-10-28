@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.10" version="2.0"
+  xmlns="http://pear.php.net/dtd/package-2.0"
+  xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+                      http://pear.php.net/dtd/tasks-1.0.xsd
+                      http://pear.php.net/dtd/package-2.0
+                      http://pear.php.net/dtd/package-2.0.xsd">
+    <name>phpDox</name>
+    <channel>pear.netpirates.net</channel>
+    <summary>A php Documentation generation framework and tool</summary>
+    <description>A fast Documentation generator for PHP Code using standard technology (SRC, DOCBLOCK, XML and XSLT) with event based processing</description>
+    <lead>
+	   <name>Arne Blankerts</name>
+	   <user>theseer</user>
+	   <email>arne@blankerts.de</email>
+	   <active>yes</active>
+    </lead>
+    <date>2014-01-08</date>
+    <version>
+	   <release>%release%</release>
+	   <api>0.5.0</api>
+    </version>
+    <stability>
+	   <release>alpha</release>
+	   <api>alpha</api>
+    </stability>
+    <license>BSD License</license>
+    <notes>http://github.com/theseer/phpdox/tree</notes>
+    <contents>
+        <!-- The main contents is dynamically added by the package builder task -->
+        <dir name="/">
+            <file baseinstalldir="/" name="phpdox.php" role="script">
+                <tasks:replace from="%development%" to="version" type="package-info" />
+                <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config"/>
+                <tasks:replace from="@php_bin@" to="php_bin" type="pear-config" />
+            </file>
+            <file baseinstalldir="/" name="phpdox.bat" role="script">
+                <tasks:replace from="@php_bin@" to="php_bin" type="pear-config" />
+                <tasks:replace from="@bin_dir@" to="bin_dir" type="pear-config" />
+            </file>
+        </dir>
+    </contents>
+
+     <dependencies>
+      <required>
+       <php>
+        <min>5.3.3</min>
+       </php>
+       <pearinstaller>
+        <min>1.9.2</min>
+       </pearinstaller>
+       <package>
+        <name>DirectoryScanner</name>
+        <channel>pear.netpirates.net</channel>
+        <min>1.2.1</min>
+       </package>
+       <package>
+        <name>fDOMDocument</name>
+        <channel>pear.netpirates.net</channel>
+        <min>1.2.3</min>
+       </package>
+       <package>
+        <name>fXSL</name>
+        <channel>pear.netpirates.net</channel>
+        <min>1.0.4</min>
+       </package>
+       <package>
+        <name>ConsoleTools</name>
+        <channel>components.ez.no</channel>
+        <min>1.6</min>
+       </package>
+       <package>
+        <name>PHPParser</name>
+        <channel>nikic.github.com/pear</channel>
+        <min>0.9.4</min>
+       </package>
+       <package>
+        <name>PHP_Timer</name>
+        <channel>pear.phpunit.de</channel>
+        <min>1.0.4</min>
+       </package>
+       <extension>
+        <name>tokenizer</name>
+       </extension>
+       <extension>
+        <name>dom</name>
+       </extension>
+       <extension>
+        <name>xsl</name>
+       </extension>
+       <extension>
+        <name>iconv</name>
+       </extension>
+       <extension>
+        <name>fileinfo</name>
+       </extension>
+      </required>
+     </dependencies>
+     <phprelease>
+      <installconditions>
+       <os>
+        <name>windows</name>
+       </os>
+      </installconditions>
+      <filelist>
+       <install as="phpdox" name="phpdox.php" />
+       <install as="phpdox.bat" name="phpdox.bat" />
+      </filelist>
+     </phprelease>
+     <phprelease>
+      <filelist>
+       <install as="phpdox" name="phpdox.php" />
+       <ignore name="phpdox.bat" />
+      </filelist>
+     </phprelease>
+</package>
